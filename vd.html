@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Display</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            background: url('https://files.catbox.moe/4ir3v7.png') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            font-family: 'Times New Roman', serif;
+        }
+
+        h2 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+        }
+
+        img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Scrolling text style */
+        .scrolling-text {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .scrolling-text p {
+            display: inline-block;
+            animation: scroll-left 10s linear infinite;
+            font-size: 2em;
+            font-weight: bold;
+            color: white;
+            text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+        }
+
+        /* Animation for scrolling */
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Style for the text below the image */
+        .below-image-text {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: white;
+            font-weight: bold;
+            text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+        }
+    </style>
+</head>
+<body>
+    <h2>NITHIN SON OF BIJU</h2>
+    <img 
+        src="https://i.ibb.co/88cBrth/IMG-20250122-215355-738.jpg" 
+        alt="Image of Nithin Son of Biju" 
+        onclick="playAudio()" />
+
+    <!-- Text below the image -->
+    <p class="below-image-text">Eda Photo Il Click Akk 😹👍🏻</p>
+
+    <!-- Audio Element -->
+    <audio id="backgroundAudio">
+        <source src="https://files.catbox.moe/4lxe1g.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Function to play the audio when the image is clicked
+        function playAudio() {
+            const audio = document.getElementById('backgroundAudio');
+            audio.play();
+        }
+    </script>
+
+    <!-- Scrolling text at the bottom -->
+    <div class="scrolling-text">
+        <p>ക്ലാപ്പന വെടി അമീറിന്റെ പുത്രൻ പിടിയിൽ 🤌🏻</p>
+    </div>
+</body>
+  </html>
