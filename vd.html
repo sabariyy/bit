@@ -81,7 +81,7 @@
     <img 
         src="https://i.ibb.co/88cBrth/IMG-20250122-215355-738.jpg" 
         alt="Image of Nithin Son of Biju" 
-        onclick="playAudio()" />
+        onclick="playAudioOnceRepeat()" />
 
     <!-- Text below the image -->
     <p class="below-image-text">Eda Photo Il Click Akk 😹👍🏻</p>
@@ -93,10 +93,18 @@
     </audio>
 
     <script>
-        // Function to play the audio when the image is clicked
-        function playAudio() {
+        // Function to play the audio and ensure it repeats only once per click
+        function playAudioOnceRepeat() {
             const audio = document.getElementById('backgroundAudio');
+            audio.pause(); // Stop any current playback
+            audio.currentTime = 0; // Reset to the start of the audio
             audio.play();
+
+            // Set an event listener to stop playback after repeating once
+            audio.onended = () => {
+                audio.currentTime = 0; // Reset again
+                audio.pause(); // Stop the audio completely
+            };
         }
     </script>
 
@@ -105,4 +113,4 @@
         <p>ക്ലാപ്പന വെടി അമീറിന്റെ പുത്രൻ പിടിയിൽ 🤌🏻</p>
     </div>
 </body>
-  </html>
+</html>
