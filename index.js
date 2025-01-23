@@ -10,7 +10,7 @@ const __path = process.cwd();
 
 // Route to serve vd.html
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__path, 'vxd.html'));
+    res.sendFile(path.join(__path, 'vd.html'));
 });
 
 // Start the server
