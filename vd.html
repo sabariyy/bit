@@ -95,22 +95,35 @@
         <source src="https://files.catbox.moe/3ey8t2.mp4" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
+    <audio id="audio3">
+        <source src="https://files.catbox.moe/lfyka5.mp4" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
     <script>
         // Function to play a random audio when the image is clicked
         function playRandomAudio() {
             const audio1 = document.getElementById('audio1');
             const audio2 = document.getElementById('audio2');
+            const audio3 = document.getElementById('audio3');
 
-            // Stop and reset both audios in case one is already playing
-            [audio1, audio2].forEach(audio => {
+            // Stop and reset all audios in case one is already playing
+            [audio1, audio2, audio3].forEach(audio => {
                 audio.pause();
                 audio.currentTime = 0;
             });
 
             // Randomly pick one audio to play
-            const randomAudio = Math.random() < 0.5 ? audio1 : audio2;
-            randomAudio.play();
+            const randomAudio = Math.random();
+            let selectedAudio;
+            if (randomAudio < 0.33) {
+                selectedAudio = audio1;
+            } else if (randomAudio < 0.66) {
+                selectedAudio = audio2;
+            } else {
+                selectedAudio = audio3;
+            }
+            selectedAudio.play();
         }
     </script>
 
