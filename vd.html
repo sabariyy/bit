@@ -81,30 +81,36 @@
     <img 
         src="https://i.ibb.co/88cBrth/IMG-20250122-215355-738.jpg" 
         alt="Image of Nithin Son of Biju" 
-        onclick="playAudioOnceRepeat()" />
+        onclick="playRandomAudio()" />
 
     <!-- Text below the image -->
     <p class="below-image-text">Eda Photo Il Click Akk 😹👍🏻</p>
 
-    <!-- Audio Element -->
-    <audio id="backgroundAudio">
+    <!-- Audio Elements -->
+    <audio id="audio1">
         <source src="https://files.catbox.moe/cse4gl.mp4" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="audio2">
+        <source src="https://files.catbox.moe/3ey8t2.mp4" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
     <script>
-        // Function to play the audio and ensure it repeats only once per click
-        function playAudioOnceRepeat() {
-            const audio = document.getElementById('backgroundAudio');
-            audio.pause(); // Stop any current playback
-            audio.currentTime = 0; // Reset to the start of the audio
-            audio.play();
+        // Function to play a random audio when the image is clicked
+        function playRandomAudio() {
+            const audio1 = document.getElementById('audio1');
+            const audio2 = document.getElementById('audio2');
 
-            // Set an event listener to stop playback after repeating once
-            audio.onended = () => {
-                audio.currentTime = 0; // Reset again
-                audio.pause(); // Stop the audio completely
-            };
+            // Stop and reset both audios in case one is already playing
+            [audio1, audio2].forEach(audio => {
+                audio.pause();
+                audio.currentTime = 0;
+            });
+
+            // Randomly pick one audio to play
+            const randomAudio = Math.random() < 0.5 ? audio1 : audio2;
+            randomAudio.play();
         }
     </script>
 
