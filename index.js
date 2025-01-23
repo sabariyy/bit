@@ -1,24 +1,20 @@
 const express = require('express');
 const path = require('path');
-const bodyParser = require("body-parser");
 const open = require('open');
 
 const app = express();
-const __path = process.cwd();
 const PORT = process.env.PORT || 8000;
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// Define the path to the directory containing vd.html
+const __path = process.cwd();
 
-});
+// Route to serve vd.html
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__path, '/public/vd.html'));
+    res.sendFile(path.join(__path, 'vd.html'));
 });
 
-// Start the server and open the browser
+// Start the server
 app.listen(PORT, () => {
-    console.log('Server running on http://localhost:' + PORT);
-    open('http://localhost:8000');
+    console.log(`Server running at http://localhost:${PORT}`);
+    open(`http://localhost:${PORT}`); // Automatically open in default browser
 });
-
-module.exports = app;
